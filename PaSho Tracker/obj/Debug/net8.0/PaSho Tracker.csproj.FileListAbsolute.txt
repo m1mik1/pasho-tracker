@@ -1,0 +1,33 @@
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/appsettings.Development.json
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/appsettings.json
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/PaSho Tracker
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/PaSho Tracker.deps.json
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/PaSho Tracker.runtimeconfig.json
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/PaSho Tracker.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/PaSho Tracker.pdb
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.csproj.AssemblyReference.cache
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.AssemblyInfoInputs.cache
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.AssemblyInfo.cs
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.csproj.CoreCompileInputs.cache
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.MvcApplicationPartsAssemblyInfo.cs
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.MvcApplicationPartsAssemblyInfo.cache
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/staticwebassets.build.json
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/staticwebassets.development.json
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/staticwebassets/msbuild.PaSho Tracker.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/staticwebassets/msbuild.build.PaSho Tracker.props
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.PaSho Tracker.props
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.PaSho Tracker.props
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/scopedcss/bundle/PaSho Tracker.styles.css
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tr.9173D1FB.Up2Date
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/refint/PaSho Tracker.dll
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.pdb
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/PaSho Tracker.genruntimeconfig.cache
+/Users/lame/RiderProjects/PaSho Tracker/PaSho Tracker/obj/Debug/net8.0/ref/PaSho Tracker.dll
