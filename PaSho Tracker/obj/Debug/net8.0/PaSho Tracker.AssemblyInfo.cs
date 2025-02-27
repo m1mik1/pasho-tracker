@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaSho Tracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+297cfd0373f1a46b03549b6201a00af33c174e2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e789f51b3ef775480a88b8bdbfa74a7e4a1f0c39")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaSho Tracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaSho Tracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
