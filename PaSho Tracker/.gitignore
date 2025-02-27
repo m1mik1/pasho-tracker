@@ -1,15 +1,5 @@
-# Rider & .NET temp files
-*.user
-*.suo
+/obj/
+/bin/
 *.cache
 *.nuget.info
-obj/
-bin/
-.vscode/
-.idea/
-*.csproj.user
-
-
-
-
 
