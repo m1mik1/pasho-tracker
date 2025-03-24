@@ -1,15 +1,12 @@
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace PaSho_Tracker.Model;
 
 public class CommentModel : BaseEntity
 {
-    // Пустой конструктор для EF
-    public CommentModel()
-    {
-    }
+    public CommentModel() {}
 
-    // Конструктор только со scalar-полями
     public CommentModel(int id, string commentText, string author, int relatedTaskId) : base(id)
     {
         CommentText = commentText;
@@ -21,7 +18,9 @@ public class CommentModel : BaseEntity
     public string Author { get; set; }
     public int RelatedTaskId { get; set; }
 
-    [JsonIgnore] public TaskModel RelatedTask { get; set; }
+    [JsonIgnore]
+    [BindNever] 
+    public TaskModel? RelatedTask { get; set; }
 
     public override string GetEntityInfo()
     {

@@ -17,6 +17,10 @@ builder.Services.AddAuthorization();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString)); // <-- Заменили на PostgreSQL
 
+builder.Services.AddScoped<CategoryRepository>();  
+builder.Services.AddScoped<CommentRepository>(); 
+builder.Services.AddScoped<TaskRepository>();
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
