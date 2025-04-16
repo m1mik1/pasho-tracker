@@ -33,8 +33,7 @@ public class TaskModel : BaseEntity
     public TaskStatus Status { get; set; }
 
     public DateTime Deadline { get; set; }
-    public string AssignedUserId { get; set; }
-
+    public string? AssignedUserId { get; set; }
     [JsonIgnore] public ICollection<CommentModel> Comments { get; set; }
 
     public override string GetEntityInfo()

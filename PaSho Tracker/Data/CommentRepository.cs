@@ -13,8 +13,7 @@ namespace PaSho_Tracker.Data
                 .Where(c => c.RelatedTaskId == taskId)
                 .ToListAsync();
         }
-
-        // Проверить, существует ли комментарий по ID
+        
         public async Task<bool> ExistsAsync(int commentId)
         {
             return await _context.Comments.AnyAsync(c => c.Id == commentId);

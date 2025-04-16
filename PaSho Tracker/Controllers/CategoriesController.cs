@@ -1,16 +1,18 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PaSho_Tracker.Data;
 using PaSho_Tracker.Model;
 
-namespace PaSho_Tracker.Controllers
-{
+namespace PaSho_Tracker.Controllers;
+    
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
-    public class CategoryController : BaseController
+    public class CategoriesController : BaseController
     {
         private readonly CategoryRepository _categoryRepository;
 
-        public CategoryController(ILogger<CategoryController> logger, CategoryRepository categoryRepository) 
+        public CategoriesController(ILogger<CategoriesController> logger, CategoryRepository categoryRepository) 
             : base(logger)
         {
             _categoryRepository = categoryRepository;
@@ -144,4 +146,4 @@ namespace PaSho_Tracker.Controllers
             return Ok(sortedCategories);
         }
     }
-}
+

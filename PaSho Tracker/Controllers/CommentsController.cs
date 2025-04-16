@@ -1,16 +1,18 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PaSho_Tracker.Data;
 using PaSho_Tracker.Model;
 
 namespace PaSho_Tracker.Controllers;
 
+[Authorize(Roles = "Admin")]
 [ApiController]
 [Route("api/[controller]")]
-public class CommentController : BaseController
+public class CommentsController : BaseController
 {
     private readonly CommentRepository _commentRepository;
 
-    public CommentController(ILogger<CommentController> logger, CommentRepository commentRepository)
+    public CommentsController(ILogger<CommentsController> logger, CommentRepository commentRepository)
         : base(logger)
     {
         _commentRepository = commentRepository;

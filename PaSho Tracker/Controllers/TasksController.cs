@@ -1,16 +1,18 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PaSho_Tracker.Data;
 using PaSho_Tracker.Model;
 
 namespace PaSho_Tracker.Controllers;
 
+[Authorize(Roles = "Admin")]
 [ApiController]
 [Route("api/[controller]")]
-public class TaskController : BaseController
+public class TasksController : BaseController
 {
     private readonly TaskRepository _taskRepository;
 
-    public TaskController(ILogger<TaskController> logger, TaskRepository taskRepository)
+    public TasksController(ILogger<TasksController> logger, TaskRepository taskRepository)
         : base(logger)
     {
         _taskRepository = taskRepository;
@@ -95,7 +97,7 @@ public class TaskController : BaseController
             task.Description = model.Description ?? task.Description;
             task.Priority = model.Priority;
             task.AssignedUserId = model.AssignedUserId ?? task.AssignedUserId;
-            task.Deadline = model.Deadline != default ? model.Deadline : task.Deadline;
+            task.Deadline = DateTime.SpecifyKind(model.Deadline, DateTimeKind.Utc).ToUniversalTime();
             task.Status = model.Status;
 
             await _taskRepository.UpdateAsync(task);
@@ -103,8 +105,9 @@ public class TaskController : BaseController
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Failed to update task: {ex.Message}");
-            return HandleError(ex);
+            var innerMessage = ex.InnerException?.Message ?? "No inner exception";
+            _logger.LogError($"❌ Ошибка при обновлении задачи: {ex.Message}. Inner: {innerMessage}");
+            return StatusCode(500, "Ошибка при обновлении задачи");
         }
 
         return NoContent();

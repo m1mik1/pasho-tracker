@@ -14,4 +14,12 @@ public class AppDbContext : IdentityDbContext<IdentityUser>
     public DbSet<TaskModel> Tasks { get; set; } = null!;
     public DbSet<CategoryModel> Categories { get; set; } = null!;
     public DbSet<CommentModel> Comments { get; set; } = null!;
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Entity<IdentityUser>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+    }
 }
