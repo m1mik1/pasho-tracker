@@ -7,6 +7,10 @@ public class CategoryModel : BaseEntity
         CategoryName = categoryName;
     }
 
+    public CategoryModel()
+    {
+    }
+
     public string CategoryName { get; set; }
 
     public override string GetEntityInfo()
