@@ -29,4 +29,10 @@
         </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Application\" />
+      <Folder Include="Domain\" />
+      <Folder Include="Resources\" />
+    </ItemGroup>
+
 </Project>
