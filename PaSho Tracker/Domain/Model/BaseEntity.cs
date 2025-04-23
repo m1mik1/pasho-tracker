@@ -1,6 +1,6 @@
 using PaSho_Tracker.Interface;
 
-namespace PaSho_Tracker.Model;
+namespace PaSho_Tracker.Domain.Model;
 
 public abstract class BaseEntity : IEntity
 {

@@ -1,4 +1,6 @@
+using PaSho_Tracker.Application.Services;
 using PaSho_Tracker.Data;
+using PaSho_Tracker.Domain.Model;
 using PaSho_Tracker.DTO;
 using PaSho_Tracker.Interface;
 using PaSho_Tracker.Model;
@@ -77,16 +79,22 @@ public class CategoryService : ICategoryService
                 return null;
             }
 
-            var entity = new CategoryModel
+            var category = new CategoryModel
             {
                 CategoryName = model.CategoryName,
             };
+            var validationResults = ValidationService.Validate(category);
+            if (validationResults.Any())
+            {
+                _logger.LogWarning("Validation failed: {Errors}", string.Join(" | ", validationResults.Select(r => r.ErrorMessage)));
+                return null;
+            }
 
-            await _categoryRepository.AddAsync(entity);
+            await _categoryRepository.AddAsync(category);
             var categoryDto = new CategoryDto
             {
-                Id = entity.Id,
-                CategoryName = entity.CategoryName
+                Id = category.Id,
+                CategoryName = category.CategoryName
             };
 
             return categoryDto;
@@ -112,6 +120,12 @@ public class CategoryService : ICategoryService
             }
 
             category.CategoryName = model.CategoryName;
+            var validationResults = ValidationService.Validate(category);
+            if (validationResults.Any())
+            {
+                _logger.LogWarning("Validation failed: {Errors}", string.Join(" | ", validationResults.Select(r => r.ErrorMessage)));
+                return false;
+            }
             await _categoryRepository.UpdateAsync(category);
             _logger.LogInformation("Category with id {Id} updated", model.Id);
             return true;

@@ -1,3 +1,4 @@
+using PaSho_Tracker.Application.Services;
 using PaSho_Tracker.Data;
 using PaSho_Tracker.DTO;
 using PaSho_Tracker.Interface;
@@ -117,21 +118,29 @@ public class CommentService : ICommentService
                 return null;
             }
 
-            var entity = new CommentModel
+            var comment = new CommentModel
             {
                 CommentText = model.CommentText,
                 Author = model.Author,
                 RelatedTaskId = model.RelatedTaskId
             };
-            await _commentRepository.AddAsync(entity);
-            _logger.LogInformation("Created comment with id: {Id}", entity.Id);
+            var validationResults = ValidationService.Validate(comment);
+            if (validationResults.Any())
+            {
+                _logger.LogWarning("Validation failed: {Errors}",
+                    string.Join(" | ", validationResults.Select(r => r.ErrorMessage)));
+                return null;
+            }
+            await _commentRepository.AddAsync(comment);
+            _logger.LogInformation("Created comment with id: {Id}", comment.Id);
             var commentDto = new CommentDto
             {
-                Id = entity.Id,
-                CommentText = entity.CommentText,
-                Author = entity.Author,
-                RelatedTaskId = entity.RelatedTaskId
+                Id = comment.Id,
+                CommentText = comment.CommentText,
+                Author = comment.Author,
+                RelatedTaskId = comment.RelatedTaskId
             };
+            
             return commentDto;
         }
         catch (Exception ex)
@@ -163,6 +172,13 @@ public class CommentService : ICommentService
             comment.CommentText = model.CommentText;
             comment.Author = model.Author;
             comment.RelatedTaskId = model.RelatedTaskId;
+            var validationResults = ValidationService.Validate(comment);
+            if (validationResults.Any())
+            {
+                _logger.LogWarning("Validation failed: {Errors}",
+                    string.Join(" | ", validationResults.Select(r => r.ErrorMessage)));
+                return false;
+            }
             await _commentRepository.UpdateAsync(comment);
             _logger.LogInformation("Updated comment with id: {Id}", model.Id);
             return true;

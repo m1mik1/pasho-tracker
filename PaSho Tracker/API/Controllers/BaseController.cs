@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PaSho_Tracker.Data;
 
-namespace PaSho_Tracker.Controllers;
+namespace PaSho_Tracker.API.Controllers;
 
 [ApiController]
 public abstract class BaseController : ControllerBase

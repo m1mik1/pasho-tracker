@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PaSho_Tracker.Domain.Model;
 using PaSho_Tracker.Model;
 
 namespace PaSho_Tracker.Data;

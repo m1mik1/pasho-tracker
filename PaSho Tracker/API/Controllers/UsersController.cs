@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PaSho_Tracker.DTO;
 using PaSho_Tracker.Interface;
 
-namespace PaSho_Tracker.Controllers;
+namespace PaSho_Tracker.API.Controllers;
 
 
 [Authorize(Roles="Admin")]

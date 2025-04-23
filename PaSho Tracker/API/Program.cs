@@ -7,6 +7,7 @@ using PaSho_Tracker.Services;
 using PaSho_Tracker.Services.Email;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using PaSho_Tracker.API.Controllers;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +35,27 @@ builder.Services.AddAuthentication(options =>
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
         };
+        
+        options.Events = new JwtBearerEvents
+        {
+            OnChallenge = context =>
+            {
+                context.HandleResponse(); // Не делаем редирект
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+                return context.Response.WriteAsync("{\"error\": \"Unauthorized\"}");
+            },
+            OnForbidden = context =>
+            {
+                context.Response.StatusCode = 403;
+                context.Response.ContentType = "application/json";
+                return context.Response.WriteAsync("{\"error\": \"Forbidden\"}");
+            }
+        };
     });
+
+builder.Services.AddAuthorization(); // <--- обязательно
+
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -66,7 +87,6 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
-builder.Services.AddControllers();
 builder.Services.AddAuthorization();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -84,6 +104,8 @@ builder.Services.AddScoped<ICommentService, CommentService>();
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddControllers().AddApplicationPart(typeof(UsersController).Assembly);
+
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -103,6 +125,19 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Events.OnRedirectToAccessDenied = context =>
+    {
+        context.Response.StatusCode = StatusCodes.Status403Forbidden;
+        return Task.CompletedTask;
+    };
+    options.Events.OnRedirectToLogin = context =>
+    {
+        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        return Task.CompletedTask;
+    };
+});
 
 var app = builder.Build();
 
@@ -110,7 +145,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API v1");
+        
+        c.ConfigObject.AdditionalItems["persistAuthorization"] = false;
+    });;
 }
 
 app.UseHttpsRedirection();

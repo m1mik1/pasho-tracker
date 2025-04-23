@@ -1,4 +1,6 @@
+using PaSho_Tracker.Application.Services;
 using PaSho_Tracker.Data;
+using PaSho_Tracker.Domain.Model;
 using PaSho_Tracker.DTO;
 using PaSho_Tracker.Interface;
 using PaSho_Tracker.Model;
@@ -82,7 +84,7 @@ public class TaskService : ITaskService
     {
         try
         {
-            var entity = new TaskModel
+            var task = new TaskModel
             {
                 Title = model.Title,
                 Description = model.Description,
@@ -91,18 +93,26 @@ public class TaskService : ITaskService
                 AssignedUserId = model.AssignedUserId,
                 Status = model.Status
             };
-            await _taskRepository.AddAsync(entity);
+            var validationResults = ValidationService.Validate(task);
+            if (validationResults.Any())
+            {
+                _logger.LogWarning("Validation failed: {Errors}",
+                    string.Join(" | ", validationResults.Select(r => r.ErrorMessage)));
+                return null;
+            }
+            await _taskRepository.AddAsync(task);
+            
             var taskDto = new TaskDto
             {
-                Id = entity.Id,
-                Title = entity.Title,
-                Description = entity.Description,
-                Priority = entity.Priority,
-                Deadline = entity.Deadline,
-                AssignedUserId = entity.AssignedUserId,
-                Status = entity.Status
+                Id = task.Id,
+                Title = task.Title,
+                Description = task.Description,
+                Priority = task.Priority,
+                Deadline = task.Deadline,
+                AssignedUserId = task.AssignedUserId,
+                Status = task.Status
             };
-            _logger.LogInformation("Created new task with ID: {ID}", entity.Id);
+            _logger.LogInformation("Created new task with ID: {ID}", task.Id);
             return taskDto;
         }
         catch (Exception ex)
@@ -129,6 +139,15 @@ public class TaskService : ITaskService
             task.Deadline = model.Deadline;
             task.AssignedUserId = model.AssignedUserId;
             task.Status = model.Status;
+            
+            var validationResults = ValidationService.Validate(task);
+            if (validationResults.Any())
+            {
+                _logger.LogWarning("Validation failed: {Errors}",
+                    string.Join(" | ", validationResults.Select(r => r.ErrorMessage)));
+                return false;
+            }
+            
             await _taskRepository.UpdateAsync(task);
             _logger.LogInformation("Updated task with ID: {ID}", task.Id);
             return true;
@@ -182,6 +201,7 @@ public class TaskService : ITaskService
                 };
                 taskDtos.Add(taskDto);
             }
+            
             return taskDtos;
         }
         catch (Exception ex)

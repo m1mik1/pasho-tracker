@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PaSho_Tracker.Domain.Model;
 using PaSho_Tracker.DTO;
 using PaSho_Tracker.Interface;
 using PaSho_Tracker.Model;

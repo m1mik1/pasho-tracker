@@ -1,13 +1,8 @@
-using System.Text.Encodings.Web;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using PaSho_Tracker.DTO;
 using PaSho_Tracker.Interface;
-using PaSho_Tracker.Services;
 
-namespace PaSho_Tracker.Controllers;
+namespace PaSho_Tracker.API.Controllers;
 
 [ApiController]
 [Produces("application/json")]

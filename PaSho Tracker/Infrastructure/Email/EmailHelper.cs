@@ -1,7 +1,5 @@
 using System.Net;
 using System.Net.Mail;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace PaSho_Tracker.Services.Email;
 
@@ -18,7 +16,7 @@ public class EmailHelper : IEmailHelper
 
     public async Task SendEmail(string toEmail, string subject, string templateName, string urlPlaceholder, string finalUrl)
     {
-        var templatePath = Path.Combine(Directory.GetCurrentDirectory(), "EmailTemplates", templateName);
+        var templatePath = Path.Combine(Directory.GetCurrentDirectory(),"Resources" ,"EmailTemplates", templateName);
 
         if (!File.Exists(templatePath))
         {
