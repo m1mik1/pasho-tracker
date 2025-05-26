@@ -3,7 +3,7 @@
 **Система керування завданнями та проектами**
 
 * **Backend:** ASP.NET Core 7 + EF Core + PostgreSQL
-* **Frontend:** React (Vite) + shadcn/ui + TailwindCSS
+* **Frontend:** React.js + Next.js  + shadcn/ui + TailwindCSS
 
 ---
 
