@@ -1,0 +1,6 @@
+﻿services:
+  pasho trackerpashotracker:
+    image: pasho-tracker
+    build:
+      context: .
+      dockerfile: PaSho Tracker/Dockerfile
