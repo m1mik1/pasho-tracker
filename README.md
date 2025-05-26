@@ -150,7 +150,6 @@ npm run dev
 
 ```http
 GET http://localhost:5178/api/categories
-Authorization: Bearer <YOUR_JWT_TOKEN>
 ```
 
 ---
