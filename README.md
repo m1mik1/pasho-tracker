@@ -173,15 +173,37 @@ GET http://localhost:5178/api/categories
 
 ### Backend
 
-* ASP.NET Core Web API
-* Шари:
+Проект «PaSho Tracker» у Visual Studio структурований так:
 
-  * `Controllers`
-  * `Services` (бізнес-логіка)
-  * `Repositories` (дані через EF Core)
-* SOLID, DTO, Unit of Work
-* Email SMTP через `IEmailService`
-* Аутентифікація через JWT
+* **Properties**
+
+  * `launchSettings.json` — налаштування профілів запуску
+* **API**
+
+  * `Controllers` — Web API контролери
+  * `Program.cs` — конфігурація та запуск Web Host
+* **Application**
+
+  * `DTO` — об’єктні моделі для передавання даних
+  * `Services` — бізнес-логіка
+  * `GenericRepository.cs` — універсальний репозиторій
+* **Contracts**
+
+  * Інтерфейси для сервісів та репозиторіїв
+* **Domain**
+
+  * `Enums` — перелічення
+  * `Model` — доменні сутності
+* **Infrastructure**
+
+  * `Email` — реалізація SMTP-лізування
+  * `Persistance` — налаштування EF Core (DbContext, міграції)
+  * `Repositories` — репозиторії для доступу до даних
+  * `Security` — налаштування аутентифікації та авторизації
+  * `Storage` — зберігання файлів (за потреби)
+* **Resources**
+
+  * `EmailTemplates` — HTML-шаблони листів (ConfirmEmailTemplate.html, ResetPasswordTemplate.html)
 
 ### Frontend
 
