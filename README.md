@@ -220,7 +220,7 @@ docker run -d -p 3000:3000 pasho-frontend
 
 ### Скріни роботи програми
 
-* `<img width="1512" alt="image" src="https://github.com/user-attachments/assets/6c33855f-c0f1-4273-a218-bdae60449697" />` — головна сторінка
+* <img width="1512" alt="image" src="https://github.com/user-attachments/assets/6c33855f-c0f1-4273-a218-bdae60449697" /> — головна сторінка
 * `<img width="1510" alt="image" src="https://github.com/user-attachments/assets/bab2c268-5dd2-4111-9074-da3b1ff3e783" />` — вікно авторизації
 * `<img width="1511" alt="image" src="https://github.com/user-attachments/assets/fff82f13-b242-41a2-b014-cef8f7bcc924" />` — сторінка реєстрації
 
