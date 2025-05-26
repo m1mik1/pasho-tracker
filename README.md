@@ -1,4 +1,4 @@
-<img width="1188" alt="image" src="https://github.com/user-attachments/assets/ccc065af-54b5-41e0-a112-33dc14140558" /># PaSho Tracker
+# PaSho Tracker
 
 **Система керування завданнями та проектами**
 
