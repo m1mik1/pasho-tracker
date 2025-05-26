@@ -1,13 +1,13 @@
-# PaSho Tracker
+<img width="1188" alt="image" src="https://github.com/user-attachments/assets/ccc065af-54b5-41e0-a112-33dc14140558" /># PaSho Tracker
 
 **Система керування завданнями та проектами**
 
 * **Backend:** ASP.NET Core 7 + EF Core + PostgreSQL
-* **Frontend:** React.js + Next.js  + shadcn/ui + TailwindCSS
+* **Frontend:** React.js + Next.js + shadcn/ui + TailwindCSS
 
 ---
 
-## 🚀 Вміст
+## Вміст
 
 1. [Передумови](#-передумови)
 2. [Клонування репозиторію](#-клонування-репозиторію)
@@ -26,7 +26,7 @@
 
 ---
 
-## 📋 Передумови
+## Передумови
 
 * .NET 7 SDK
 * Node.js ≥ 16
@@ -36,7 +36,7 @@
 
 ---
 
-## 📥 Клонування репозиторію
+## Клонування репозиторію
 
 ```bash
 git clone https://github.com/m1mik1/pasho-tracker.git
@@ -45,7 +45,7 @@ cd pasho-tracker
 
 ---
 
-## 🔧 Конфігурація
+## Конфігурація
 
 ### Backend
 
@@ -116,7 +116,7 @@ VITE_API_URL=http://localhost:5000
 
 ---
 
-## ▶️ Запуск
+## Запуск
 
 ### 1. Запуск БД
 
@@ -132,7 +132,7 @@ dotnet ef database update
 dotnet run
 ```
 
-API буде доступний за `http://localhost:5000` (або за launchSettings `http://localhost:5178`)
+API буде доступний за `http://localhost:5000` або `http://localhost:5178`
 
 ### 3. Frontend
 
@@ -142,11 +142,11 @@ npm install
 npm run dev
 ```
 
-Фронтенд: `http://localhost:3000`
+Фронтенд буде доступний за `http://localhost:3000`
 
 ---
 
-## 🔍 Перевірка API
+## Перевірка API
 
 ```http
 GET http://localhost:5178/api/categories
@@ -154,55 +154,53 @@ GET http://localhost:5178/api/categories
 
 ---
 
-## 🎬 Демонстрація функціоналу
+## Демонстрація функціоналу
 
 1. Авторизація (JWT)
+<img width="1473" alt="image" src="https://github.com/user-attachments/assets/4a0fa63c-4b96-4ede-871c-d57adbf50f64" />
+
+
 2. CRUD для категорій
+<img width="1471" alt="image" src="https://github.com/user-attachments/assets/dd2c8b7f-9a09-4a88-b5ae-ded6f178443f" />
+
 3. CRUD для задач
-4. Drag & Drop між статусами
+<img width="1478" alt="image" src="https://github.com/user-attachments/assets/85a7eedd-4fd9-49fd-b3d0-57a5718cbd7d" />
 
-<details>
-<summary>Приклад скріншотів (помістіть у `docs/screens` та оновіть шляхи)</summary>
-
-![Login](/docs/screens/login.png)
-![Dashboard](/docs/screens/dashboard.png)
-
-</details>
 
 ---
 
-## 🏗 Архітектура
+## Архітектура
 
 ### Backend
 
-* **ASP.NET Core Web API**
+* ASP.NET Core Web API
 * Шари:
 
   * `Controllers`
   * `Services` (бізнес-логіка)
   * `Repositories` (дані через EF Core)
-* Патерни: SOLID, DTO, Unit of Work
+* SOLID, DTO, Unit of Work
 * Email SMTP через `IEmailService`
 * Аутентифікація через JWT
 
 ### Frontend
 
-* **React** + **Vite**
-* **TailwindCSS** + **shadcn/ui**
-* Запити через `lib/api` (відокремлені функції)
-* Стан: React Context + React Query
+* React.js + Next.js
+* TailwindCSS + shadcn/ui
+* Запити через `lib/api`
+* React Context + React Query
 * Drag & Drop: `@dnd-kit`
 
 ---
 
-## 📦 Docker Deployment
+## Docker Deployment
 
 ```bash
-# Побудова та запуск backend
+# Backend
 docker build -t pasho-backend ./backend
 docker run -d -p 5000:5000 --env-file backend/appsettings.json pasho-backend
 
-# Побудова та запуск frontend
+# Frontend
 cd frontend
 docker build -t pasho-frontend .
 docker run -d -p 3000:3000 pasho-frontend
@@ -216,16 +214,19 @@ docker run -d -p 3000:3000 pasho-frontend
 
 * Створювати та редагувати категорії задач.
 * Додавати, редагувати та видаляти задачі.
-* Отримувати email-сповіщення про підтвердження данних (за налаштувань SMTP).
+* Перетягувати задачі між колонками для зміни статусу.
+* Отримувати email-сповіщення про оновлення задач.
 
 ### Скріни роботи програми
 
-* <img width="1512" alt="image" src="https://github.com/user-attachments/assets/6c33855f-c0f1-4273-a218-bdae60449697" /> — головна сторінка
-* `<img width="1510" alt="image" src="https://github.com/user-attachments/assets/bab2c268-5dd2-4111-9074-da3b1ff3e783" />` — вікно авторизації
-* `<img width="1511" alt="image" src="https://github.com/user-attachments/assets/fff82f13-b242-41a2-b014-cef8f7bcc924" />` — сторінка реєстрації
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/6c33855f-c0f1-4273-a218-bdae60449697" /> головна сторінка
+<img width="1510" alt="image" src="https://github.com/user-attachments/assets/bab2c268-5dd2-4111-9074-da3b1ff3e783" /> — вікно авторизації
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/fff82f13-b242-41a2-b014-cef8f7bcc924" /> — сторінка реєстрації
 
 ---
 
-## 🤝 Контакти та внески
+## Контакти та внески
 
 Якщо маєте питання чи знайдете баги, створюйте issue або надсилайте PR.
+
+> Note: не пуште реальні креденшіали чи приватні ключі в репозиторій. Використовуйте змінні середовища.
